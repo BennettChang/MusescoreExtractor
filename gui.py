@@ -4,7 +4,7 @@ from os import path
 import download_svg
 import pull_svg
 
-PATH = "C:\Program Files (x86)\chromedriver.exe"
+PATH = "../MusescoreExtractor/chromedriver.exe"
 
 file_list_column = [
     [
