@@ -1,14 +1,14 @@
 import os.path
 from os import path
 from svglib.svglib import svg2rlg
-from reportlab.graphics import renderPDF, renderPM
+from reportlab.graphics import renderPDF
 from PyPDF2 import PdfMerger
 
 def svgs_to_pdf(download_path):
     SCORE= download_path + '\score_'
     score_num = 0
     pdf_list = []
-    
+
     while(os.path.exists(SCORE + str(score_num) + '.svg')):
         drawing = svg2rlg(SCORE + str(score_num) + '.svg')
         renderPDF.drawToFile(drawing, SCORE+ str(score_num) + '.pdf')
