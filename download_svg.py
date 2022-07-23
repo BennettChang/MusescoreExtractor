@@ -1,7 +1,7 @@
-from pickle import FALSE, TRUE
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.events import EventFiringWebDriver, AbstractEventListener
+from selenium.webdriver.chrome.options import Options
+
 from bs4 import BeautifulSoup
 import requests
 import time
@@ -13,8 +13,9 @@ def write_text(data: str, path: str):
 def download_musescore_svg(musescore_link, download_path, PATH):
     MUSESCORE = musescore_link
     DOWNLOAD = download_path + '/score_'
-
-    driver = webdriver.Chrome(PATH)
+    options = webdriver.ChromeOptions()
+    options.add_argument("headless")
+    driver = webdriver.Chrome(executable_path=PATH, chrome_options=options)
     driver.get(musescore_link)
     driver.set_window_size(1024, 600)
     driver.maximize_window()
